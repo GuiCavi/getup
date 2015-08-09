@@ -60,6 +60,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+  font-family: "Roboto";
+}
+html.open .sidebar {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+body {
+  min-height: 100%;
+}
+
 .container {
   max-width: 768px;
   margin-left: auto;
@@ -74,9 +89,77 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-origin: content-box, border-box;
   background-clip: content-box, border-box;
   background-position: left top;
+  padding-top: 55px;
 }
 .container:after {
   content: " ";
   display: block;
   clear: both;
+}
+
+.site-header {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: #3d8af7;
+  padding: 0 10px;
+  height: 54px;
+  line-height: 64px;
+  z-index: 999;
+  position: fixed;
+}
+.site-header #toggle-sidebar {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  color: #fff;
+  font-size: 30px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  padding: 20px;
+}
+
+.sidebar {
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 73.68421%;
+  float: left;
+  margin-right: 5.26316%;
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  margin-top: 55px;
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  overflow: hidden;
+}
+.sidebar li:first-child a {
+  border-top: 1px solid #000;
+}
+.sidebar a {
+  display: block;
+  padding: 10px 15px;
+  border-bottom: 1px solid #000;
+  color: rgba(0, 0, 0, 0.84);
+  text-decoration: none;
+}
+.sidebar a:hover {
+  color: #000;
+}
+.sidebar a i.mdi {
+  font-size: 22px;
 }
