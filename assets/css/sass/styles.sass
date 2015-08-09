@@ -1,0 +1,15 @@
+@import compass
+@import compass/reset
+@import susy
+
+$columns: 4
+$container: 768px
+$debug: (image: show)
+
+$susy: (columns: $columns, container: $container, debug: $debug)
+
+*, *::before, *::after
+  +box-sizing(border-box)
+
+.container
+  +container()
