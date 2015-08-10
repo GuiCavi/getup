@@ -1,0 +1,40 @@
+html.open
+  body::after
+    +translateX(0)
+  .sidebar
+    +transform(translateX(0))
+
+body::after
+  +translateX(-100%)
+  +transition(all .3s ease-in-out)
+  content: ""
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  background-color: rgba(#333, 0.68)
+  z-index: 997
+
+.sidebar
+  +transition(all .3s ease-in-out)
+  +span(3 of 4)
+  +transform(translateX(-100%))
+  margin-top: 55px
+  position: fixed
+  z-index: 998
+  top: 0
+  left: 0
+  bottom: 0
+  background-color: #fff
+  overflow: hidden
+  a
+    display: block
+    padding: 10px 15px
+    border-bottom: 1px solid #000
+    color: rgba(#000, 0.84)
+    text-decoration: none
+    &:hover
+      color: #000
+    i.mdi
+      font-size: 22px

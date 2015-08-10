@@ -14,9 +14,7 @@ $susy: (columns: $columns, container: $container, debug: $debug)
 html
   height: 100%
   font-family: 'Roboto'
-  &.open
-    .sidebar
-      +transform(translateX(0))
+
 body
   min-height: 100%
 
@@ -45,28 +43,4 @@ body
   height: auto
   padding: 20px
 
-.sidebar
-  +transition(all .3s ease-in-out)
-  +span(3 of 4)
-  +transform(translateX(-100%))
-  margin-top: 55px
-  position: fixed
-  z-index: 998
-  top: 0
-  left: 0
-  bottom: 0
-  background-color: #fff
-  overflow: hidden
-
-  li:first-child a
-    border-top: 1px solid #000
-  a
-    display: block
-    padding: 10px 15px
-    border-bottom: 1px solid #000
-    color: rgba(#000, 0.84)
-    text-decoration: none
-    &:hover
-      color: #000
-    i.mdi
-      font-size: 22px
+@import sidebar

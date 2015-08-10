@@ -64,12 +64,6 @@ html {
   height: 100%;
   font-family: "Roboto";
 }
-html.open .sidebar {
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-}
 
 body {
   min-height: 100%;
@@ -126,6 +120,38 @@ body {
   padding: 20px;
 }
 
+html.open body::after {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+html.open .sidebar {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+body::after {
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(51, 51, 51, 0.68);
+  z-index: 997;
+}
+
 .sidebar {
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -146,9 +172,6 @@ body {
   bottom: 0;
   background-color: #fff;
   overflow: hidden;
-}
-.sidebar li:first-child a {
-  border-top: 1px solid #000;
 }
 .sidebar a {
   display: block;
