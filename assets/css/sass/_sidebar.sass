@@ -29,10 +29,15 @@ body::after
   bottom: 0
   background-color: #fff
   overflow: hidden
+  .sidebar-menu
+    padding-top: 15px
+    border-top: 1px solid #ddd
+    a
+      padding: 10px 15px
+  li.active a
+    color: $primaryColor
   a
     display: block
-    padding: 10px 15px
-    border-bottom: 1px solid #000
     color: rgba(#000, 0.84)
     text-decoration: none
     &:hover
