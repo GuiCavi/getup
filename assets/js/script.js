@@ -58,11 +58,9 @@ function situacoesInit() {
   };
 };
 
-(function() {
-  toggleSidebarInit();
-  situacoesInit();
-
+function temposInit() {
   var $tempos = document.querySelectorAll('.tempos')[0];
+  if (!$tempos) return;
   var $items = $tempos.querySelectorAll('input[name=tempos]');
   for (var i = 0, len = $items.length; i < len; i++) {
     $items[i].addEventListener('change', function() {
@@ -75,4 +73,10 @@ function situacoesInit() {
       $next.classList.remove('mdi-radiobox-blank');
     });
   };
+};
+
+(function() {
+  toggleSidebarInit();
+  situacoesInit();
+  temposInit();
 })();

@@ -1,0 +1,36 @@
+.historico
+  padding: 15px 0
+  position: relative
+  &::after
+    content: ""
+    position: absolute
+    top: 0
+    left: 50%
+    bottom: 0
+    width: 3px
+    background-color: #eee
+    z-index: -1
+  > li
+    position: relative
+    padding: 10px 0
+  span
+    font-size: 12px
+  .legend
+    position: absolute
+    top: 15px
+    left: 0
+    padding-left: 5px
+  .day
+    +transform(translate(-50%,-50%))
+    position: absolute
+    top: 50%
+    left: 50%
+    font-size: 15px
+  .circle
+    +border-radius(50%)
+    width: 10px
+    height: 10px
+    display: inline-block
+    vertical-align: middle
+    margin-right: 4px
+    margin-top: -4px
