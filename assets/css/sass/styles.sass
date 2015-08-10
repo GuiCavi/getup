@@ -34,9 +34,32 @@ html
 body
   min-height: 100%
 
+button
+  +border-radius(24px)
+  background-color: $primaryColor
+  color: #fff
+  background-image: none
+  border: none
+  display: inline-block
+  cursor: pointer
+  height: 48px
+  letter-spacing: 1px
+  font-size: 18px
+  &:hover
+    background-color: darken($primaryColor, 10%)
+  &[block]
+    display: block
+    width: 95%
+    margin: 0 auto
+
+[header]
+  color: $primaryColor
+  padding: 20px 10px
+  border-bottom: 1px solid #ddd
+
 .container
   +container()
-  padding-top: 55px
+  padding-top: 54px
 
 .site-header
   +span(4 of 4)
@@ -61,3 +84,4 @@ body
 
 @import sidebar
 @import situacoes
+@import tempos

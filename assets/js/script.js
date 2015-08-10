@@ -40,6 +40,7 @@ function situacoesInit() {
   });
 
   var $situacoes = document.querySelectorAll('.situacoes')[0];
+  if (!$situacoes) return;
   for (var i = 0, len = situacoes.length; i < len; i++) {
     var $li   = document.createElement('li');
     var $i    = document.createElement('i');
@@ -60,4 +61,18 @@ function situacoesInit() {
 (function() {
   toggleSidebarInit();
   situacoesInit();
+
+  var $tempos = document.querySelectorAll('.tempos')[0];
+  var $items = $tempos.querySelectorAll('input[name=tempos]');
+  for (var i = 0, len = $items.length; i < len; i++) {
+    $items[i].addEventListener('change', function() {
+      console.dir(this);
+      var m = $tempos.querySelectorAll('.mdi-radiobox-marked')[0];
+      var $next = this.nextSibling;
+      m && m.classList.remove('mdi-radiobox-marked') === undefined && m.classList.add('mdi-radiobox-blank');
+
+      $next.classList.add('mdi-radiobox-marked');
+      $next.classList.remove('mdi-radiobox-blank');
+    });
+  };
 })();

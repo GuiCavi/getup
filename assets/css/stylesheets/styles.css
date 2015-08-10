@@ -77,11 +77,40 @@ body {
   min-height: 100%;
 }
 
+button {
+  -moz-border-radius: 24px;
+  -webkit-border-radius: 24px;
+  border-radius: 24px;
+  background-color: #3d8af7;
+  color: #fff;
+  background-image: none;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  height: 48px;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+button:hover {
+  background-color: #0c6cf5;
+}
+button[block] {
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+}
+
+[header] {
+  color: #3d8af7;
+  padding: 20px 10px;
+  border-bottom: 1px solid #ddd;
+}
+
 .container {
   max-width: 768px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 55px;
+  padding-top: 54px;
 }
 .container:after {
   content: " ";
@@ -163,7 +192,7 @@ body::after {
   -ms-transform: translateX(-100%);
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
-  margin-top: 55px;
+  margin-top: 54px;
   position: fixed;
   z-index: 998;
   top: 0;
@@ -192,6 +221,8 @@ body::after {
 }
 .sidebar a i.mdi {
   font-size: 22px;
+  vertical-align: middle;
+  margin-top: -1px;
 }
 
 .situacoes {
@@ -219,4 +250,24 @@ body::after {
 .situacoes li span {
   margin-top: 20px;
   font-size: 14px;
+}
+
+.tempos {
+  margin: 10px 0;
+}
+.tempos input[type=radio] {
+  display: none;
+}
+.tempos li {
+  border-bottom: 1px solid #ddd;
+}
+.tempos li label {
+  display: block;
+  padding: 20px 15px;
+  font-size: 14px;
+}
+.tempos i.mdi {
+  font-size: 22px;
+  vertical-align: middle;
+  margin-top: -2px;
 }

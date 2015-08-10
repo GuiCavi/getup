@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8">
+  <title>Get Up!</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="assets/mdi/css/mdi.min.css">
+  <link rel="stylesheet" href="assets/css/stylesheets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <i class="mdi mdi-menu" id="toggle-sidebar"></i>
+  </header>
+
+  <div class="sidebar">
+    <a href="./"><img src="assets/images/logo.png" alt="" style="width: 100px; margin: 15px;"></a>
+    <ul class="sidebar-menu">
+      <li><a href="./situacoes.html"><i class="mdi mdi-nature-people"></i> Situações</a></li>
+      <li><a href="#"><i class="mdi mdi-clock"></i> Histórico</a></li>
+      <li class="active"><a href="./tempos.html"><i class="mdi mdi-view-list"></i> Lista de tempos</a></li>
+      <li><a href="#"><i class="mdi mdi-settings"></i> Configurações</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <label style="display: block;" header>Escolha o tempo até o próximo intervalo</label>
+
+    <ul class="tempos">
+      <li><label for="15m"><input type="radio" id="15m"   name="tempos" value="15m"><i class="mdi mdi-radiobox-blank"></i> 15 minutos</label></li>
+      <li><label for="30m"><input type="radio" id="30m"   name="tempos" value="30m"><i class="mdi mdi-radiobox-blank"></i> 30 minutos</label></li>
+      <li><label for="45m"><input type="radio" id="45m"   name="tempos" value="45m"><i class="mdi mdi-radiobox-blank"></i> 45 minutos</label></li>
+      <li><label for="60m"><input type="radio" id="60m"   name="tempos" value="60m"><i class="mdi mdi-radiobox-blank"></i> 60 minutos</label></li>
+      <li><label for="90m"><input type="radio" id="90m"   name="tempos" value="90m"><i class="mdi mdi-radiobox-blank"></i> 90 minutos</label></li>
+      <li><label for="120m"><input type="radio" id="120m"  name="tempos"  value="120m"><i class="mdi mdi-radiobox-blank"></i> 120 minutos</label></li>
+    </ul>
+
+    <button id="iniciar" block>Iniciar</button>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+
+</body>
+</html>
