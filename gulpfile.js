@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 		plumber = require('gulp-plumber');
 
 gulp.task('compass', function() {
-	gulp.src('./assets/css/sass/**/*.sass')
+	gulp.src('./assets/css/sass/*.sass')
 	 		.pipe(plumber())
 			.pipe(compass({
 				config_file: './assets/css/config.rb',

@@ -1,0 +1,20 @@
+.situacoes
+  @extend %flex
+  flex-wrap: wrap
+  max-width: 768px
+  li
+    @extend %flex
+    +flex(30%)
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    height: 150px
+    border: 2px solid #333
+    margin: 10px
+    cursor: pointer
+    i.mdi
+      font-size: 35px
+      color: #333
+    span
+      margin-top: 20px
+      font-size: 14px

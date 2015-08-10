@@ -2,9 +2,23 @@
 @import compass/reset
 @import susy
 
+%flex
+  display: -webkit-flex
+  display: -moz-flex
+  display: -ms-flex
+  display: -o-flex
+  display: flex
+
+=flex($width)
+  -webkit-flex: 1 1 $width
+  -moz-flex: 1 1 $width
+  -ms-flex: 1 1 $width
+  -o-flex: 1 1 $width
+  flex: 1 1 $width
+
 $columns: 4
 $container: 768px
-$debug: (image: show)
+$debug: (image: hide)
 
 $susy: (columns: $columns, container: $container, debug: $debug)
 
@@ -44,3 +58,4 @@ body
   padding: 20px
 
 @import sidebar
+@import situacoes
