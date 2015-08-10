@@ -52,9 +52,7 @@
     for (var i = 0, len = days.length; i < len; i++) {
       var canvas = '<canvas style="width: 100%;" id="' + days[i].id + '"></canvas>';
 
-      var __ = document.createElement('div');
-      __.innerHTML = canvas;
-      canvas = __.firstChild;
+      canvas = stringToHtml(canvas);
 
       var $li = document.createElement('li');
       $li.appendChild(canvas);
