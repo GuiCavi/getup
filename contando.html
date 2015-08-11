@@ -29,6 +29,11 @@
 
     <div class="contador">
       <canvas id="contador" style="width: 100%;"></canvas>
+
+    </div>
+    <div class="buttons">
+      <button>Pausar</button>
+      <button>Parar</button>
     </div>
 
   </div>
@@ -38,15 +43,18 @@
 
   <script>
     var canvas = document.getElementById('contador');
-    var n = 0, n2 = 60;
+
+    var segundos = 3600;
+
+    var n = 0, n2 = segundos;
     var ctx = canvas.getContext('2d'),
         options = {
           percentageInnerCutout : 70,
           segmentStrokeColor: '#333',
-          animationSteps : 60,
-          animateScale : true,
+          segmentStrokeWidth: 1,
+          animation : false,
           responsive: true,
-          legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span><span class=\"circle\" style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></span></li><%}%></ul>"
+          showTooltips: false,
         },
         data = [
           {
@@ -61,13 +69,33 @@
 
     var myNewChart = new Chart(ctx).Doughnut(data, options);
 
-    setInterval(function() {
+    var $contador = document.querySelector('.contador');
+    var $time = document.createElement('div');
+    $time.innerText = parseInt(n2/60) + ' : ' + n2%60;
+    $time.classList.add('time');
+    $contador.appendChild($time);
+
+    var interval = setInterval(function() {
+      if (n > segundos) {
+        clearInterval(interval);
+        return;
+      }
+      var m = parseInt(Math.floor((n2)/60));
+      var s = (n2)%60;
+
+      if (m == 0) m = '00';
+      else if (m < 10) m = '0'+m;
+      if (s == 0) s = '00';
+      else if (s < 10) s = '0'+s;
+
+      $time.innerText = m + ':' + s;
+
       myNewChart.segments[0].value = n++;
-
       myNewChart.segments[1].value = n2--;
-
       myNewChart.update();
-    }, 500);
+
+    }, 1000);
+
   </script>
 
 </body>

@@ -1,2 +1,14 @@
 .contador
   padding: 15px 0
+  position: relative
+  .time
+    +transform(translate(-50%, -50%))
+    position: absolute
+    top: 50%
+    left: 50%
+    font-size: 32px
+.buttons
+  @extend %flex
+  button
+    +flex(50px)
+    margin: 10px

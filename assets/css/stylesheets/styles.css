@@ -54,7 +54,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-.situacoes, .situacoes li {
+.situacoes, .situacoes li, .buttons {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -277,13 +277,17 @@ body::after {
   position: relative;
 }
 .historico::after {
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
   content: "";
   position: absolute;
   top: 0;
   left: 50%;
   bottom: 0;
-  width: 3px;
-  background-color: #eee;
+  width: 1px;
+  background-color: #f0f0f0;
   z-index: -1;
 }
 .historico > li {
@@ -323,4 +327,24 @@ body::after {
 
 .contador {
   padding: 15px 0;
+  position: relative;
+}
+.contador .time {
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 32px;
+}
+
+.buttons button {
+  -webkit-flex: 1 1 50px;
+  -moz-flex: 1 1 50px;
+  -ms-flex: 1 1 50px;
+  -o-flex: 1 1 50px;
+  flex: 1 1 50px;
+  margin: 10px;
 }
