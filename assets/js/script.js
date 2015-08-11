@@ -79,4 +79,5 @@ function temposInit() {
   toggleSidebarInit();
   situacoesInit();
   temposInit();
+  
 })();
