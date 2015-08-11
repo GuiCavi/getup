@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8">
+  <title>Get Up!</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="assets/mdi/css/mdi.min.css">
+  <link rel="stylesheet" href="assets/css/stylesheets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <i class="mdi mdi-menu" id="toggle-sidebar"></i>
+  </header>
+
+  <div class="sidebar">
+    <a href="./"><img src="assets/images/logo.png" alt="" style="width: 100px; margin: 15px;"></a>
+    <ul class="sidebar-menu">
+      <li><a href="./situacoes.html"><i class="mdi mdi-nature-people"></i> Situações</a></li>
+      <li><a href="./historico.html"><i class="mdi mdi-clock"></i> Histórico</a></li>
+      <li class="active"><a href="./tempos.html"><i class="mdi mdi-view-list"></i> Lista de tempos</a></li>
+      <li><a href="#"><i class="mdi mdi-settings"></i> Configurações</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <label style="display: block;" header>De acordo com a situação escolhida, espere por 60 minutos para fazer a próxima atividade</label>
+
+    <div class="contador">
+      <canvas id="contador" style="width: 100%;"></canvas>
+
+    </div>
+    <div class="buttons">
+      <button>Pausar</button>
+      <button>Parar</button>
+    </div>
+
+  </div>
+
+  <script src="assets/js/Chart.js/Chart.min.js"></script>
+  <script src="assets/js/script.js"></script>
+
+  <script>
+    var canvas = document.getElementById('contador');
+
+    var segundos = 3600;
+
+    var n = 0, n2 = segundos;
+    var ctx = canvas.getContext('2d'),
+        options = {
+          percentageInnerCutout : 70,
+          segmentStrokeColor: '#333',
+          segmentStrokeWidth: 1,
+          animation : false,
+          responsive: true,
+          showTooltips: false,
+        },
+        data = [
+          {
+            value: n,
+            color: '#3d8af7'
+          },
+          {
+            value: n2,
+            color: '#fff'
+          }
+        ];
+
+    var myNewChart = new Chart(ctx).Doughnut(data, options);
+
+    var $contador = document.querySelector('.contador');
+    var $time = document.createElement('div');
+    $time.innerText = parseInt(n2/60) + ' : ' + n2%60;
+    $time.classList.add('time');
+    $contador.appendChild($time);
+
+    var interval = setInterval(function() {
+      if (n > segundos) {
+        clearInterval(interval);
+        return;
+      }
+      var m = parseInt(Math.floor((n2)/60));
+      var s = (n2)%60;
+
+      if (m == 0) m = '00';
+      else if (m < 10) m = '0'+m;
+      if (s == 0) s = '00';
+      else if (s < 10) s = '0'+s;
+
+      $time.innerText = m + ':' + s;
+
+      myNewChart.segments[0].value = n++;
+      myNewChart.segments[1].value = n2--;
+      myNewChart.update();
+
+    }, 1000);
+
+  </script>
+
+</body>
+</html>
