@@ -20,7 +20,7 @@
       <li><a href="./situacoes.html"><i class="mdi mdi-nature-people"></i> Situações</a></li>
       <li class="active"><a href="./historico.html"><i class="mdi mdi-clock"></i> Histórico</a></li>
       <li><a href="./tempos.html"><i class="mdi mdi-view-list"></i> Lista de tempos</a></li>
-      <li><a href="#"><i class="mdi mdi-settings"></i> Configurações</a></li>
+      <li><a href="./configuracoes.html"><i class="mdi mdi-settings"></i> Configurações</a></li>
     </ul>
   </div>
 
@@ -52,9 +52,7 @@
     for (var i = 0, len = days.length; i < len; i++) {
       var canvas = '<canvas style="width: 100%;" id="' + days[i].id + '"></canvas>';
 
-      var __ = document.createElement('div');
-      __.innerHTML = canvas;
-      canvas = __.firstChild;
+      canvas = stringToHtml(canvas);
 
       var $li = document.createElement('li');
       $li.appendChild(canvas);

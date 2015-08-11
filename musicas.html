@@ -11,7 +11,12 @@
 </head>
 <body>
   <header class="site-header">
-    <i class="mdi mdi-menu" id="toggle-sidebar"></i>
+    <div class="site-header-left">
+      <i class="mdi mdi-menu" id="toggle-sidebar"></i>
+    </div>
+    <div class="site-header-right">
+      <a href="./configuracoes.html"><i class="mdi mdi-check" id="confirm-select"></i></a>
+    </div>
   </header>
 
   <div class="sidebar">
@@ -20,14 +25,21 @@
       <li><a href="./situacoes.html"><i class="mdi mdi-nature-people"></i> Situações</a></li>
       <li><a href="./historico.html"><i class="mdi mdi-clock"></i> Histórico</a></li>
       <li><a href="./tempos.html"><i class="mdi mdi-view-list"></i> Lista de tempos</a></li>
-      <li><a href="./configuracoes.html"><i class="mdi mdi-settings"></i> Configurações</a></li>
+      <li class="active"><a href="./configuracoes.html"><i class="mdi mdi-settings"></i> Configurações</a></li>
     </ul>
   </div>
 
   <div class="container">
-    <img src="assets/images/logo.png" alt="" class="logo">
+    <label style="display: block;" header>Escolha as músicas que deseja como toque</label>
+
+    <div class="musicas">
+      <ul class="musicas-list">
+        
+      </ul>
+    </div>
   </div>
 
+  <script src="assets/js/musicas.js"></script>
   <script src="assets/js/script.js"></script>
 
 </body>
