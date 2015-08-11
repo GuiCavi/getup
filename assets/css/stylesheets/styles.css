@@ -54,7 +54,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-.situacoes, .situacoes li {
+.site-header, .site-header .site-header-right, .situacoes, .situacoes li {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -126,18 +126,31 @@ button[block] {
   background-color: #3d8af7;
   padding: 0 10px;
   height: 54px;
-  line-height: 64px;
   z-index: 999;
   position: fixed;
+  align-items: center;
+  justify-content: space-between;
 }
-.site-header #toggle-sidebar {
+.site-header .site-header-right {
+  justify-content: flex-end;
+  -webkit-flex: 1 1 auto;
+  -moz-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  -o-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+.site-header::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.site-header i.mdi {
   -moz-user-select: -moz-none;
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
   color: #fff;
   font-size: 30px;
-  z-index: 1000;
   cursor: pointer;
 }
 
@@ -252,21 +265,22 @@ body::after {
   font-size: 14px;
 }
 
-.tempos {
+.tempos, .musicas-list {
   margin: 10px 0;
 }
-.tempos input[type=radio] {
+.tempos input[type=radio], .musicas-list input[type=radio] {
   display: none;
 }
-.tempos li {
+.tempos li, .musicas-list li {
   border-bottom: 1px solid #ddd;
 }
-.tempos li label {
+.tempos li label, .musicas-list li label {
   display: block;
   padding: 20px 15px;
   font-size: 14px;
+  cursor: pointer;
 }
-.tempos i.mdi {
+.tempos i.mdi, .musicas-list i.mdi {
   font-size: 22px;
   vertical-align: middle;
   margin-top: -2px;
@@ -319,4 +333,26 @@ body::after {
   vertical-align: middle;
   margin-right: 4px;
   margin-top: -4px;
+}
+
+.configuracoes {
+  padding-top: 15px;
+}
+.configuracoes a {
+  padding: 10px 15px;
+  display: block;
+  color: rgba(0, 0, 0, 0.84);
+  text-decoration: none;
+}
+.configuracoes a:hover {
+  color: #000;
+}
+.configuracoes a i.mdi {
+  font-size: 22px;
+  vertical-align: middle;
+  margin-top: -1px;
+}
+
+.musicas-list input[type=checkbox] {
+  display: none;
 }
