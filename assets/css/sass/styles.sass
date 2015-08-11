@@ -9,13 +9,6 @@
   display: -o-flex
   display: flex
 
-%iflex
-  display: -webkit-inline-flex
-  display: -moz-inline-flex
-  display: -ms-inline-flex
-  display: -o-inline-flex
-  display: inline-flex
-
 =flex($width)
   -webkit-flex: 1 1 $width
   -moz-flex: 1 1 $width
@@ -69,28 +62,19 @@ button
   padding-top: 54px
 
 .site-header
-  @extend %flex
   +span(4 of 4)
   background-color: $primaryColor
   padding: 0 10px
   height: 54px
+  line-height: 64px
   z-index: 999
   position: fixed
-  align-items: center
-  justify-content: space-between
-  .site-header-right
-    @extend %flex
-    justify-content: flex-end
-    +flex(auto)
 
-  &::after
-    content: ""
-    display: block
-    clear: both
-  i.mdi
+  #toggle-sidebar
     +user-select(none)
     color: #fff
     font-size: 30px
+    z-index: 1000
     cursor: pointer
 
 .logo
@@ -102,5 +86,4 @@ button
 @import situacoes
 @import tempos
 @import historico
-@import configuracoes
-@import musicas
+@import contador
