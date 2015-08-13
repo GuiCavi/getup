@@ -54,12 +54,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-.site-header, .site-header .site-header-right, .situacoes, .situacoes li, .buttons {
+.site-header, .site-header .site-header-right, .situacoes, .situacoes li, #alert, .buttons, .alarme-options, .alarme-options .alarme {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
   display: flex;
+}
+
+[vertical] {
+  flex-direction: column;
 }
 
 *, *::before, *::after {
@@ -108,6 +112,7 @@ button[block] {
   color: #3d8af7;
   padding: 20px 10px;
   border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
 }
 
 .container {
@@ -252,6 +257,10 @@ body::after {
   -ms-flex: 1 1 30%;
   -o-flex: 1 1 30%;
   flex: 1 1 30%;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -361,6 +370,40 @@ body::after {
   margin-top: -1px;
 }
 
+#alert {
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 13px;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+}
+#alert.show {
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+#alert a {
+  color: #FDD835;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
 .musicas-list input[type=checkbox] {
   display: none;
 }
@@ -387,4 +430,30 @@ body::after {
   -o-flex: 1 1 50px;
   flex: 1 1 50px;
   margin: 10px;
+}
+
+.alarme-options {
+  width: 100%;
+}
+.alarme-options > div {
+  -webkit-flex: 1 1 auto;
+  -moz-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  -o-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+.alarme-options .alarme {
+  align-items: center;
+  padding: 15px 0;
+  position: relative;
+}
+.alarme-options .alarme .time {
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: calc(50% + 1px);
+  left: calc(50% - 3px);
+  font-size: 20px;
 }

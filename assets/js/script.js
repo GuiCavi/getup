@@ -60,6 +60,9 @@ function situacoesInit() {
 
     $li.appendChild($i);
     $li.appendChild($span);
+    $li.addEventListener('click', function() {
+      window.location.pathname = '/contando.html';
+    });
 
     $situacoes.appendChild($li);
   };

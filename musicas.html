@@ -43,5 +43,17 @@
   <script src="assets/js/musicas.js"></script>
   <script src="assets/js/script.js"></script>
 
+  <script>
+    document.getElementById('confirm-select').addEventListener('click', function(e) {
+      e.preventDefault();
+      var $form = document.createElement('form');
+
+      $form.action = 'configuracoes.html#success';
+      $form.method = 'GET';
+
+      $form.submit();
+    });
+  </script>
+
 </body>
 </html>

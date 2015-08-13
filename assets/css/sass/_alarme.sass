@@ -1,0 +1,16 @@
+.alarme-options
+  @extend %flex
+  width: 100%
+  > div
+    +flex(auto)
+  .alarme
+    @extend %flex
+    align-items: center
+    padding: 15px 0
+    position: relative
+    .time
+      +transform(translate(-50%, -50%))
+      position: absolute
+      top: calc(50% + 1px)
+      left: calc(50% - 3px)
+      font-size: 20px

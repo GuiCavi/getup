@@ -26,15 +26,22 @@
   </div>
 
   <div class="container">
-    <label style="display: block;" header>De acordo com a situação escolhida, espere por 60 minutos para fazer a próxima atividade</label>
+    <label style="display: block;" header>Opa, hora de fazer exercícios</label>
+    <img src="http://placehold.it/800x400" style="width: 100%;">
 
-    <div class="contador">
-      <canvas id="contador" style="width: 100%;"></canvas>
+    <p style="padding: 10px">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, inventore, beatae. Dignissimos est, ipsam. Recusandae neque delectus et, necessitatibus veniam, est qui ut omnis. Tenetur voluptates beatae adipisci voluptatem officia.
+    </p>
 
-    </div>
-    <div class="buttons">
-      <button id="pause">Pausar</button>
-      <button id="parar">Parar</button>
+    <div class="alarme-options">
+      <div class="alarme">
+        <canvas id="alarme" style="width: 200px; height: 150px"></canvas>
+      </div>
+      <div class="buttons" vertical>
+        <button>Pular</button>
+        <button>Pausar</button>
+        <button>Terminei</button>
+      </div>
     </div>
 
   </div>
@@ -43,10 +50,9 @@
   <script src="assets/js/script.js"></script>
 
   <script>
-    var pause = false;
-    var canvas = document.getElementById('contador');
+    var canvas = document.getElementById('alarme');
 
-    var segundos = 220;
+    var segundos = 300;
 
     var n = 0, n2 = segundos;
     var ctx = canvas.getContext('2d'),
@@ -71,50 +77,32 @@
 
     var myNewChart = new Chart(ctx).Doughnut(data, options);
 
-    var $contador = document.querySelector('.contador');
+    var $alarme = document.querySelector('.alarme');
     var $time = document.createElement('div');
-
     $time.innerText = parseInt(n2/60) + ' : ' + n2%60;
     $time.classList.add('time');
-    $contador.appendChild($time);
+    $alarme.appendChild($time);
 
     var interval = setInterval(function() {
-      if (!pause) {
-
-        if (n > segundos) {
-          clearInterval(interval);
-          window.location.pathname = '/alarme.html';
-          return;
-        }
-        var m = parseInt(Math.floor((n2)/60));
-        var s = (n2)%60;
-
-        if (m == 0) m = '00';
-        else if (m < 10) m = '0'+m;
-        if (s == 0) s = '00';
-        else if (s < 10) s = '0'+s;
-
-        $time.innerText = m + ':' + s;
-
-        myNewChart.segments[0].value = n++;
-        myNewChart.segments[1].value = n2--;
-        myNewChart.update();
-
+      if (n > segundos) {
+        clearInterval(interval);
+        return;
       }
+      var m = parseInt(Math.floor((n2)/60));
+      var s = (n2)%60;
+
+      if (m == 0) m = '00';
+      else if (m < 10) m = '0'+m;
+      if (s == 0) s = '00';
+      else if (s < 10) s = '0'+s;
+
+      $time.innerText = m + ':' + s;
+
+      myNewChart.segments[0].value = n++;
+      myNewChart.segments[1].value = n2--;
+      myNewChart.update();
+
     }, 1000);
-
-    document.getElementById('pause').addEventListener('click', function(e) {
-      e.preventDefault();
-
-      pause = !pause;
-
-      pause ? this.innerText = 'Continuar' : this.innerText = 'Pausar';
-    });
-
-    document.getElementById('parar').addEventListener('click', function(e) {
-      e.preventDefault();
-      window.location.pathname = '/situacoes.html';
-    });
 
   </script>
 

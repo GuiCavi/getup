@@ -35,7 +35,31 @@
     </div>
   </div>
 
+  <div id="alert">
+    <span class="message">Músicas salvas com sucesso</span>
+    <a href="#">Fechar</a>
+  </div>
+
   <script src="assets/js/script.js"></script>
+  <script>
+    window.onload = function() {
+      if (window.location.hash == '#success') {
+        var $alert = document.getElementById('alert');
+        $alert.classList.add('show');
+        setTimeout(function() {
+          $alert.classList.remove('show');
+          window.location.hash = '';
+        }, 3000);
+      }
+    };
+
+    document.getElementById('alert').querySelector('a').onclick = function(e) {
+      e.preventDefault();
+
+      this.parentNode.classList.remove('show');
+      window.location.hash = '';
+    };
+  </script>
 
 </body>
 </html>
